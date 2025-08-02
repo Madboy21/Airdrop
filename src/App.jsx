@@ -69,10 +69,11 @@ function App() {
       <div className="main-content">
         <div className="header">
           <img src="/monkey.png" alt="logo" className="logo" />
-          <h1 className="main-title">Monkey Token Airdrop</h1>
+          <h1 className="main-title">$2000 usdt Reward & Monkey Token Airdrop</h1>
         </div>
 
-        <p className="coming-soon">Spent a small fee and claim</p>
+        <p className="coming-soon">"The top 100 referrers will be rewarded with $10 USDT each,"</p>
+        <p className="coming-soon">while our system will randomly select 1000 claimers to receive $1 USDT each as a special bonus."</p>
 
         <div className="token-info">
           <p>FCFS: <strong>6.7k/20k</strong></p>
