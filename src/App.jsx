@@ -19,6 +19,15 @@ const fakeClaims = [
   "0x123...AbC9 claimed 100 MONK",
   "0x456...FFaa claimed 100 MONK",
   "0x789...ACD1 claimed 100 MONK"
+  "0xB2...4C9F claimed 100 MONK",
+  "0xEF...A712 claimed 100 MONK",
+  "0x0A...B27D claimed 100 MONK",
+  "0x77...E95C claimed 100 MONK",
+  "0xAbC...1234 claimed 100 MONK",
+  "0xDef...5678 claimed 100 MONK",
+  "0x123...AbC9 claimed 100 MONK",
+  "0x456...FFaa claimed 100 MONK",
+  "0x789...ACD1 claimed 100 MONK"
 ];
 
 function App() {
