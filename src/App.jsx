@@ -69,33 +69,31 @@ function App() {
       <div className="main-content">
         <div className="header">
           <img src="/monkey.png" alt="logo" className="logo" />
-          <h1 className="main-title">$2000 usdt Reward & Monkey Token Airdrop</h1>
+          <h1 className="main-title">$20,000 usdt Reward & $200k worth of $Monk Airdrop</h1>
         </div>
 
-        <p className="coming-soon">"The top 100 referrers will be rewarded with $10 USDT each,"</p>
-        <p className="coming-soon">while our system will randomly select 1000 claimers to receive $1 USDT each as a special bonus."</p>
+        <p className="coming-soon">"Top 100 referrers will be recieve $100 USDT each,</p>
+        <p className="coming-soon">1000 claimers randomly receive $10 USDT each as a special bonus."</p>
 
         <div className="token-info">
-          <p>FCFS: <strong>6.7k/20k</strong></p>
-          <p>Token Name: <strong>$Monkey</strong></p>
-          <p>Symbol: <strong>$Monk</strong></p>
-          <p>Total Supply: <strong>100,000,000</strong></p>
-          <p>CA: <strong>0x24EEb02cdb8aA5570AfFC2DeC465f57bA176Db47</strong></p>
+          <p>FCFS: <strong>20k</strong></p>
+          <p>Token: <strong>$Monkey (MONK)</strong></p>
+          <p>Total Supply: <strong>100 Million</strong></p>
           <p>Listing: <strong>19th August</strong></p>
-          <p>Rate: <strong>0.02$ per $Monk</strong></p>
+          <p>Listing Price: <strong>0.1$ per $Monk</strong></p>
           <p>Ref: <strong>20 Monk Per reffer</strong></p>
         </div>
 
         {!account && (
           <button onClick={connectWallet} className="connect-btn">
-            Connect and Claim
+            Connect and Claim Free
           </button>
         )}
 
         {account && (
           <>
             <button className="claim-btn" onClick={claimAirdrop}>
-              Claim 100 Monk
+              Claim Free 100 Monk
             </button>
 
             <div className="referral">
