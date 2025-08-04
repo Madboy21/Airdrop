@@ -125,6 +125,7 @@ function App() {
 
         <p className="highlight-text">💰 Top 100 referrers will receive $100 USDT each</p>
         <p className="highlight-text">🎁 1000 claimers randomly receive $10 USDT each!</p>
+        <p className="highlight-text">NOTE:Only 0.0003(~0.24$) blockchain fee needed </p>
 
         <div className="token-info">
           <p>FCFS: <strong>20,000 users</strong></p>
