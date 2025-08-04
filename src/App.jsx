@@ -58,7 +58,7 @@ function App() {
       setTxStatus("Claim successful!");
     } catch (err) {
       console.error(err);
-      setTxStatus("Already Claimed or insuficient gas fee.");
+      setTxStatus("Already Claimed or insufficient gas fee.");
     }
   };
 
@@ -66,6 +66,15 @@ function App() {
 
   return (
     <div className="page">
+
+      {/* 🔥 Custom Build Offer Section */}
+      <div className="build-your-own">
+        <p className="build-text">Want to build your own project?</p>
+        <a href="https://createtokenbsc.vercel.app/" target="_blank" rel="noopener noreferrer">
+          <button className="build-btn">Launch Your Own</button>
+        </a>
+      </div>
+
       <div className="main-content">
         <div className="header">
           <img src="/monkey.png" alt="logo" className="logo" />
@@ -81,7 +90,7 @@ function App() {
           <p>Total Supply: <strong>100 Million</strong></p>
           <p>Listing: <strong>19th August</strong></p>
           <p>Listing Price: <strong>0.1$ per $Monk</strong></p>
-          <p>Ref: <strong>20 Monk Per reffer</strong></p>
+          <p>Ref: <strong>20 Monk Per referrer</strong></p>
         </div>
 
         {!account && (
