@@ -191,3 +191,167 @@ body, html {
   cursor: pointer;
   border-radius: 6px;
 }
+/* PAGE & COLORS */
+.page {
+  background: #0a0a0a;
+  color: #fff;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-bottom: 50px;
+  padding-top: 50px; /* leave space for ticker */
+}
+
+/* TICKER WRAPPER: fixed on top */
+.ticker-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #111;
+  border-bottom: 2px solid #0ff;
+  overflow: hidden;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* TICKER CONTENT: inline flex to scroll */
+.ticker-content {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker-scroll 30s linear infinite;
+  color: #0ff;
+  font-weight: 600;
+  font-size: 16px;
+  padding-left: 100%;
+}
+
+/* Each item spacing */
+.ticker-item {
+  display: inline-block;
+  margin-right: 60px;
+  user-select: none;
+}
+
+/* Scroll animation */
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* PROMO SECTION */
+.promo-section {
+  text-align: center;
+  padding: 16px;
+  background: #1b1b1b;
+  border-bottom: 1px solid #333;
+  margin-top: 40px; /* spacing below ticker */
+}
+
+.promo-section p {
+  margin: 0;
+  color: #facc15;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.promo-btn {
+  background-color: #00ffd5;
+  color: #000;
+  padding: 10px 24px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.promo-btn:hover {
+  background-color: #00bba3;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  max-width: 520px;
+  margin: 30px auto 60px;
+  padding: 25px 20px;
+  background: #131313;
+  border-radius: 12px;
+  box-shadow: 0 0 12px #000;
+  text-align: center;
+}
+
+.logo {
+  width: 80px;
+  margin-bottom: 14px;
+}
+
+.main-title {
+  font-size: 24px;
+  color: #facc15;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.highlight-text {
+  font-size: 15px;
+  color: #ccc;
+  margin: 5px 0;
+}
+
+.token-info p {
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+.connect-btn,
+.claim-btn {
+  margin-top: 24px;
+  padding: 12px 28px;
+  background: #facc15;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  transition: background-color 0.25s ease;
+}
+
+.connect-btn:hover,
+.claim-btn:hover {
+  background: #ddb70f;
+}
+
+.referral {
+  margin-top: 22px;
+}
+
+.referral p {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #00ffd5;
+}
+
+.referral input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background: #222;
+  color: #00ffcc;
+  font-size: 14px;
+  user-select: all;
+}
+
+.status-msg {
+  margin-top: 18px;
+  font-weight: 700;
+  color: #00ff99;
+}
