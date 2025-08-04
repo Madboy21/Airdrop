@@ -5,20 +5,26 @@ import "./App.css";
 
 const CONTRACT_ADDRESS = "0xfD704fdCDf772a137BAdbDE8b3f535ef9f79Be1f";
 
-// Dummy live claim data (can be dynamically updated later)
-const dummyClaims = [
-  "0xAbC...1234 claimed 100 MONK successfully!",
-  "0xDef...5678 claimed 100 MONK successfully!",
-  "0x123...AbC9 claimed 100 MONK successfully!",
-  "0x456...FFaa claimed 100 MONK successfully!",
-  "0x789...ACD1 claimed 100 MONK successfully!",
+const fakeClaims = [
+  "0xAb...12F3 claimed 100 MONK",
+  "0x4D...91C9 claimed 100 MONK",
+  "0x88...45F7 claimed 100 MONK",
+  "0x1C...9D3A claimed 100 MONK",
+  "0xB2...4C9F claimed 100 MONK",
+  "0xEF...A712 claimed 100 MONK",
+  "0x0A...B27D claimed 100 MONK",
+  "0x77...E95C claimed 100 MONK",
+  "0xAbC...1234 claimed 100 MONK",
+  "0xDef...5678 claimed 100 MONK",
+  "0x123...AbC9 claimed 100 MONK",
+  "0x456...FFaa claimed 100 MONK",
+  "0x789...ACD1 claimed 100 MONK"
 ];
 
 function App() {
   const [account, setAccount] = useState(null);
   const [referral, setReferral] = useState(null);
   const [txStatus, setTxStatus] = useState("");
-  const [currentClaimIndex, setCurrentClaimIndex] = useState(0);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -30,12 +36,6 @@ function App() {
         connectWallet();
       });
     }
-
-    const interval = setInterval(() => {
-      setCurrentClaimIndex((prev) => (prev + 1) % dummyClaims.length);
-    }, 3000); // change message every 3 sec
-
-    return () => clearInterval(interval);
   }, []);
 
   const connectWallet = async () => {
@@ -71,10 +71,10 @@ function App() {
 
       setTxStatus("Claiming...");
       await tx.wait();
-      setTxStatus("Claim successful!");
+      setTxStatus("✅ Claim successful!");
     } catch (err) {
       console.error(err);
-      setTxStatus("Already Claimed or insufficient gas fee.");
+      setTxStatus("❌ Already claimed or insufficient gas fee.");
     }
   };
 
@@ -82,56 +82,70 @@ function App() {
 
   return (
     <div className="page">
-      {/* Live Claim Ticker */}
-      <div className="ticker">
-        <p>{dummyClaims[currentClaimIndex]}</p>
+      {/* Smooth horizontal scrolling ticker */}
+      <div className="ticker-wrapper">
+        <div className="ticker-content">
+          {fakeClaims.map((text, index) => (
+            <span key={index} className="ticker-item">
+              {text} 🎉
+            </span>
+          ))}
+          {/* Duplicate again for seamless loop */}
+          {fakeClaims.map((text, index) => (
+            <span key={"dup_" + index} className="ticker-item">
+              {text} 🎉
+            </span>
+          ))}
+        </div>
       </div>
 
+      {/* Build your own project section */}
+      <div className="promo-section">
+        <p>🚀 Want to build your own project?</p>
+        <a href="https://your-link.com" target="_blank" rel="noopener noreferrer">
+          <button className="promo-btn">Build with Us</button>
+        </a>
+      </div>
+
+      {/* Main content */}
       <div className="main-content">
         <div className="header">
           <img src="/monkey.png" alt="logo" className="logo" />
-          <h1 className="main-title">$20,000 usdt Reward & $200k worth of $Monk Airdrop</h1>
+          <h1 className="main-title">$20,000 USDT Reward & $200k worth of $Monk Airdrop</h1>
         </div>
 
-        <p className="coming-soon">"Top 100 referrers will receive $100 USDT each,</p>
-        <p className="coming-soon">1000 claimers randomly receive $10 USDT each as a special bonus."</p>
+        <p className="highlight-text">💰 Top 100 referrers will receive $100 USDT each</p>
+        <p className="highlight-text">🎁 1000 claimers randomly receive $10 USDT each!</p>
 
         <div className="token-info">
-          <p>FCFS: <strong>20k</strong></p>
+          <p>FCFS: <strong>20,000 users</strong></p>
           <p>Token: <strong>$Monkey (MONK)</strong></p>
           <p>Total Supply: <strong>100 Million</strong></p>
-          <p>Listing: <strong>19th August</strong></p>
-          <p>Listing Price: <strong>0.1$ per $Monk</strong></p>
-          <p>Ref: <strong>20 Monk Per Referrer</strong></p>
+          <p>Listing Date: <strong>19th August</strong></p>
+          <p>Listing Price: <strong>$0.10</strong></p>
+          <p>Referral Bonus: <strong>20 MONK per referral</strong></p>
         </div>
 
         {!account && (
           <button onClick={connectWallet} className="connect-btn">
-            Connect and Claim Free
+            🔗 Connect & Claim Free Tokens
           </button>
         )}
 
         {account && (
           <>
             <button className="claim-btn" onClick={claimAirdrop}>
-              Claim Free 100 Monk
+              🎉 Claim Free 100 MONK
             </button>
 
             <div className="referral">
-              <p>Referral Link:</p>
+              <p>📩 Your Referral Link:</p>
               <input type="text" value={referralLink} readOnly />
             </div>
           </>
         )}
 
-        {txStatus && <p className="status">{txStatus}</p>}
-
-        <div className="build-section">
-          <h3>Want to build your own project?</h3>
-          <a href="https://yourprojectlink.com" target="_blank" rel="noopener noreferrer">
-            <button className="build-btn">Launch Your Own Airdrop</button>
-          </a>
-        </div>
+        {txStatus && <p className="status-msg">{txStatus}</p>}
       </div>
     </div>
   );
