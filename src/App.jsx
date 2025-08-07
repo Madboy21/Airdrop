@@ -25,6 +25,7 @@ function App() {
   const [account, setAccount] = useState(null);
   const [referral, setReferral] = useState(null);
   const [txStatus, setTxStatus] = useState("");
+  const [showAd, setShowAd] = useState(false); // state to control ad display
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -80,9 +81,26 @@ function App() {
 
   const referralLink = `${window.location.origin}?ref=${account}`;
 
+  // Handle ad script insertion
+  const loadMonetagAd = () => {
+    setShowAd(true); // show ad container
+    const script = document.createElement("script");
+    script.innerHTML = `
+      atOptions = {
+        'key' : 'YOUR_AD_KEY_HERE',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+      document.write('<scr' + 'ipt src="https://www.profitabledisplaynetwork.com/ads.js"></scr' + 'ipt>');
+    `;
+    script.async = true;
+    document.getElementById("monetag-container").appendChild(script);
+  };
+
   return (
     <div className="page">
-      {/* Smooth horizontal scrolling ticker */}
       <div className="ticker-wrapper">
         <div className="ticker-content">
           {fakeClaims.map((text, index) => (
@@ -90,7 +108,6 @@ function App() {
               {text} 🎉
             </span>
           ))}
-          {/* Duplicate again for seamless loop */}
           {fakeClaims.map((text, index) => (
             <span key={"dup_" + index} className="ticker-item">
               {text} 🎉
@@ -99,7 +116,6 @@ function App() {
         </div>
       </div>
 
-      {/* Build your own project section */}
       <div className="promo-section">
         <p>🚀 Want to build your own project?</p>
         <a href="https://createtokenbsc.vercel.app/" target="_blank" rel="noopener noreferrer">
@@ -107,7 +123,6 @@ function App() {
         </a>
       </div>
 
-      {/* Main content */}
       <div className="main-content">
         <div className="header">
           <img src="/monkey.png" alt="logo" className="logo" />
@@ -147,6 +162,15 @@ function App() {
         )}
 
         {txStatus && <p className="status-msg">{txStatus}</p>}
+
+        {/* Ad Section */}
+        <div className="ads-section">
+          <button className="promo-btn" onClick={loadMonetagAd}>
+            📢 Click to Show Ad
+          </button>
+
+          {showAd && <div id="monetag-container" style={{ marginTop: "20px" }}></div>}
+        </div>
       </div>
     </div>
   );
