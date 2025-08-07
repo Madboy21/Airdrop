@@ -87,7 +87,7 @@ function App() {
     const script = document.createElement("script");
     script.innerHTML = `
       atOptions = {
-        'key' : 'YOUR_AD_KEY_HERE',
+        'key' : 'https://otieu.com/4/9681195',
         'format' : 'iframe',
         'height' : 50,
         'width' : 320,
